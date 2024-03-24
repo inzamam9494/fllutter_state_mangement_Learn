@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -39,17 +40,12 @@ class _FavouriteScreenItemState extends State<FavouriteScreenItem> {
                       builder: (context, value, child) {
                         return ListTile(
                           onTap: () {
-                            if (value.selectItem.contains(index)) {
-                              value.removeItem(index);
-                            } else {
-                              value.addItem(index);
-                            }
+                            value.removeItem(index);
                           },
                           title: Text("Item $index"),
                           trailing: Icon(
-                              value.selectItem.contains(index)
-                                  ? Icons.favorite
-                                  : Icons.favorite_outline_rounded,
+                            value.selectItem.contains(index) ?
+                             Icons.favorite : Icons.favorite_outline_rounded,
                               color: Colors.red),
                         );
                       });

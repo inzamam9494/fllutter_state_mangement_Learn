@@ -5,6 +5,7 @@ import 'package:state_management/provider/example_one_provider.dart';
 import 'package:state_management/provider/favourite_provider.dart';
 import 'package:state_management/provider/theme_change_provider.dart';
 import 'package:state_management/screens/dark_theme.dart';
+import 'package:state_management/screens/favourite/favourite_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
             darkTheme: ThemeData(
               brightness: Brightness.dark
             ),
-            home: const DarkThemeScreen(),
+            home: const FavouriteScreen(),
           );
         },
 
