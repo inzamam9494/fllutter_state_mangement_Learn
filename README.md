@@ -8,9 +8,14 @@ https://github.com/inzamam9494/fllutter_state_mangement_Learn/assets/81466387/0c
 ### Day 2
 https://github.com/inzamam9494/fllutter_state_mangement_Learn/assets/81466387/dc9f60fa-53dc-4721-b30e-774c195ab96a
 
-### Day 3
+### Days 3 and 5
 https://github.com/inzamam9494/fllutter_state_mangement_Learn/assets/81466387/9a1cc0b0-9fa8-4ee6-8b70-a81448117669
 
 ### Day 4
 https://github.com/inzamam9494/fllutter_state_mangement_Learn/assets/81466387/cb0a4e6b-04bc-4808-a272-c3f14d431e37
+
+### Day 6
+https://github.com/inzamam9494/fllutter_state_mangement_Learn/assets/81466387/9821f949-3094-4d44-a4e0-7939f8081ad8
+
+
 
