@@ -22,11 +22,11 @@ class _LoginScreenState extends State<LoginScreen> {
         backgroundColor: Colors.blue[400],
         title: const Text(
           "Login",
-          style: TextStyle(fontWeight: FontWeight.w600, color: Colors.white),
+          style: TextStyle(fontWeight: FontWeight.w700, color: Colors.white),
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.all(20),
+        padding: EdgeInsets.all(15),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -37,7 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
             const SizedBox(
-              height: 20,
+              height: 15,
             ),
             TextFormField(
               controller: passwordController,
