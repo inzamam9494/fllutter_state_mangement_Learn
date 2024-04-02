@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:state_management/mvvm/utils/routes/routes_name.dart';
+import 'package:state_management/mvvm/view/login_screen.dart';
 import 'package:state_management/provider/auth_provider.dart';
 import 'package:state_management/provider/count_provider.dart';
 import 'package:state_management/provider/example_one_provider.dart';
@@ -9,6 +11,8 @@ import 'package:state_management/screens/dark_theme.dart';
 import 'package:state_management/screens/favourite/favourite_screen.dart';
 import 'package:state_management/screens/login_screen.dart';
 import 'package:state_management/screens/value_notify_listner.dart';
+
+import 'mvvm/utils/routes/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -42,7 +46,8 @@ class MyApp extends StatelessWidget {
             darkTheme: ThemeData(
               brightness: Brightness.dark
             ),
-            home: LoginScreen(),
+            initialRoute: RoutesName.login,
+            onGenerateRoute: Routes.generateRoute,
           );
         },
 
