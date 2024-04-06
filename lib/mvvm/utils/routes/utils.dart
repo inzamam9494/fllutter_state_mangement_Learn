@@ -23,9 +23,9 @@ class Utils{
   static void flushBarErrorMessage(String message, BuildContext context){
     showFlushbar(context: context,
         flushbar: Flushbar(
+          borderRadius: BorderRadius.circular(10),
           forwardAnimationCurve: Curves.decelerate,
           margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-          padding: EdgeInsets.all(5),
           message: message,
           backgroundColor: Colors.red,
           duration: const Duration(seconds: 2),

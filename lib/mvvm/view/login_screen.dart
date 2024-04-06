@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:state_management/mvvm/resouces/components/round_button.dart';
 import 'package:state_management/mvvm/utils/routes/routes_name.dart';
 
 import '../utils/routes/utils.dart';
@@ -21,7 +22,21 @@ class _LoginScreenMVVMState extends State<LoginScreenMVVM> {
   final FocusNode passwordFocusNode = FocusNode();
 
   @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+
+    emailFocusNode.dispose();
+    passwordFocusNode.dispose();
+
+    _obsecurePassword.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height * 1;
     return Scaffold(
       appBar: AppBar(
         title: const Center(child: Text("Login",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),),),
@@ -65,8 +80,20 @@ class _LoginScreenMVVMState extends State<LoginScreenMVVM> {
                                 Icons.visibility_off_outlined: Icons.visibility_outlined))
                     ),
                   );
-                })
-
+                }),
+            SizedBox(height: height * 0.085,),
+            RoundButton(title: 'Login',
+              onPress: () {
+              if(_emailController.text.isEmpty){
+                Utils.flushBarErrorMessage('Please enter email', context);
+              }else if(_passwordController.text.isEmpty){
+                Utils.flushBarErrorMessage('Please enter password', context);
+              }else if(_passwordController.text.length > 6){
+                Utils.flushBarErrorMessage('Please enter 6 digits', context);
+              }else{
+                print("api hit");
+              }
+              },)
           ],
         ),
       )
