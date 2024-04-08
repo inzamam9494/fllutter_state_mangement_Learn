@@ -6,7 +6,7 @@ import 'package:state_management/mvvm/data/network/BaseApiServices.dart';
 
 class NetworkApiService extends BaseApiServices {
   @override
-  Future getGetApiResponse(String url) async {
+  Future getGetApiResponse(String url, dynamic data) async {
     dynamic responseJson;
     try {
       final response = await http.get(Uri.parse(url)).timeout(const Duration(seconds: 10));

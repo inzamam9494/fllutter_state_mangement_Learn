@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:state_management/mvvm/utils/routes/routes_name.dart';
 import 'package:state_management/mvvm/view/login_screen.dart';
+import 'package:state_management/mvvm/view_model/auth_view_model.dart';
 import 'package:state_management/provider/auth_provider.dart';
 import 'package:state_management/provider/count_provider.dart';
 import 'package:state_management/provider/example_one_provider.dart';
@@ -31,7 +32,8 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => ExampleOneProvider()),
         ChangeNotifierProvider(create: (_) => FavouriteProvider()),
         ChangeNotifierProvider(create: (_) => ThemeChangerProvider()),
-        ChangeNotifierProvider(create: (_) => AuthProvider())
+        ChangeNotifierProvider(create: (_) => AuthProvider()),
+        ChangeNotifierProvider(create: (_) => AuthViewModel()),
       ],
       child: Builder(
         builder: (BuildContext context){

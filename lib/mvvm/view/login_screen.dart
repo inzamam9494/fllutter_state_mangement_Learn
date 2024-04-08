@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:state_management/mvvm/resouces/components/round_button.dart';
 import 'package:state_management/mvvm/utils/routes/routes_name.dart';
-
+import 'package:state_management/mvvm/view_model/auth_view_model.dart';
 import '../utils/routes/utils.dart';
 
 class LoginScreenMVVM extends StatefulWidget {
@@ -36,6 +37,7 @@ class _LoginScreenMVVMState extends State<LoginScreenMVVM> {
 
   @override
   Widget build(BuildContext context) {
+    final authViewModel = Provider.of<AuthViewModel>(context);
     final height = MediaQuery.of(context).size.height * 1;
     return Scaffold(
       appBar: AppBar(
@@ -70,7 +72,7 @@ class _LoginScreenMVVMState extends State<LoginScreenMVVM> {
                     decoration: InputDecoration(
                         hintText: "Password",
                         labelText: "Password",
-                        prefixIcon: Icon(Icons.lock_outline),
+                        prefixIcon: const Icon(Icons.lock_outline),
                         suffixIcon: InkWell(
                           onTap: (){
                             _obsecurePassword.value = !_obsecurePassword.value;
@@ -83,17 +85,26 @@ class _LoginScreenMVVMState extends State<LoginScreenMVVM> {
                 }),
             SizedBox(height: height * 0.085,),
             RoundButton(title: 'Login',
+              loading: authViewModel.loading,
               onPress: () {
               if(_emailController.text.isEmpty){
                 Utils.flushBarErrorMessage('Please enter email', context);
               }else if(_passwordController.text.isEmpty){
                 Utils.flushBarErrorMessage('Please enter password', context);
-              }else if(_passwordController.text.length > 6){
+              }else if(_passwordController.text.length < 6){
                 Utils.flushBarErrorMessage('Please enter 6 digits', context);
               }else{
-                print("api hit");
+                Map data = {
+                  'email': _emailController.text.toString(),
+                  'password' : _passwordController.text.toString()
+                };
+                authViewModel.loginApi(data, context);
               }
-              },)
+              },),
+            SizedBox(height: height * 0.025),
+            InkWell(onTap: (){
+              Navigator.pushNamed(context, RoutesName.signUp);
+            },child: Text("Don't have an account? Sign Up"))
           ],
         ),
       )
