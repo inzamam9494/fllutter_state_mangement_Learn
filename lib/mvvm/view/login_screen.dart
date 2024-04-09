@@ -41,8 +41,11 @@ class _LoginScreenMVVMState extends State<LoginScreenMVVM> {
     final height = MediaQuery.of(context).size.height * 1;
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text("Login",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),),),
+        centerTitle: true,
+        title: const Text("Login",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),),
         backgroundColor: Colors.blue.shade400,
+        automaticallyImplyLeading: false,
+
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
@@ -83,7 +86,7 @@ class _LoginScreenMVVMState extends State<LoginScreenMVVM> {
                     ),
                   );
                 }),
-            SizedBox(height: height * 0.085,),
+            SizedBox(height: height * 0.050,),
             RoundButton(title: 'Login',
               loading: authViewModel.loading,
               onPress: () {
