@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:state_management/mvvm/utils/routes/routes_name.dart';
 import 'package:state_management/mvvm/view/home_screen.dart';
+import 'package:state_management/mvvm/view/splash_screen.dart';
 
 import '../../view/login_screen.dart';
 import '../../view/signUp_screen.dart';
@@ -19,6 +20,8 @@ class Routes {
       case RoutesName.signUp:
         return MaterialPageRoute(
             builder: (BuildContext context) => SignUpScreenMVVM());
+      case RoutesName.splash:
+        return MaterialPageRoute(builder: (BuildContext context) => SplashScreen());
       default:
         return MaterialPageRoute(builder: (_) {
           return const Scaffold(
